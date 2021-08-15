@@ -14,6 +14,32 @@ async function createPort(name, user = null) {
   }
 }
 
+async function getPorts() {
+  try {
+    const ports = await Port.find({})
+      .sort({ name: 1 })
+      .select({ name: 1, user: 1 });
+
+    return ports;
+  } catch (ex) {
+    console.log(ex.message);
+  }
+}
+
+async function updatePort(_id, name = null) {
+  const port = await Port.updateOne(
+    { _id },
+    {
+      $set: {
+        "user.name": name,
+      },
+    }
+  );
+  return port;
+}
+
 module.exports = {
   createPort,
+  getPorts,
+  updatePort,
 };

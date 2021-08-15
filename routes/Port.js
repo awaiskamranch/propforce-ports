@@ -1,15 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const { createPort } = require("../Models/Port/port.model");
+const {
+  createPort,
+  getPorts,
+  updatePort,
+} = require("../Models/Port/port.model");
 const validatePort = require("../models/Port/port.validator");
 const {
   INTERNAL_SERVER_ERROR,
   MISSING_PARAMETERS,
   UNABLE_TO_CREATE_RECORD,
+  UNABLE_TO_UPDATE_RECORD,
 } = require("../utility/constants/error");
 
 router.get("/", (req, res) => {
-  getPort()
+  getPorts()
     .then((result) => res.send(result))
     .catch(() => res.status(500).send(INTERNAL_SERVER_ERROR));
   return;
@@ -27,6 +32,18 @@ router.post("/", (req, res) => {
     .then((result) => res.send(result))
     .catch((error) =>
       res.status(500).send(`${UNABLE_TO_CREATE_RECORD} - ${error}`)
+    );
+
+  return;
+});
+
+router.put("/", (req, res) => {
+  const { _id, name } = req.body;
+
+  updatePort(_id, name)
+    .then((result) => res.send(result))
+    .catch((error) =>
+      res.status(500).send(`${UNABLE_TO_UPDATE_RECORD} - ${error}`)
     );
 
   return;

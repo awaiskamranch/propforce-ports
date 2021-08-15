@@ -14,6 +14,19 @@ async function createUser(name, email, password) {
   }
 }
 
+async function getUsers() {
+  try {
+    const users = await User.find({})
+      .sort({ name: 1 })
+      .select({ name: 1, email: 1 });
+
+    return users;
+  } catch (ex) {
+    console.log(ex.message);
+  }
+}
+
 module.exports = {
   createUser,
+  getUsers,
 };

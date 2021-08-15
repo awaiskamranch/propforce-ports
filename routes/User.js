@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { createUser, getUser } = require("../Models/User/user.model");
+const { createUser, getUsers } = require("../Models/User/user.model");
 const validateUser = require("../models/User/user.validator");
 const {
   INTERNAL_SERVER_ERROR,
@@ -9,7 +9,7 @@ const {
 } = require("../utility/constants/error");
 
 router.get("/", (req, res) => {
-  getUser()
+  getUsers()
     .then((result) => res.send(result))
     .catch(() => res.status(500).send(INTERNAL_SERVER_ERROR));
   return;
