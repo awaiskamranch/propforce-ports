@@ -9,4 +9,15 @@ function validateUser(body) {
   return Joi.validate(body, schema);
 }
 
-module.exports = validateUser;
+function validateLoginUser(body) {
+  const schema = {
+    email: Joi.string().required(),
+    password: Joi.string().required(),
+  };
+  return Joi.validate(body, schema);
+}
+
+module.exports = {
+  validateUser,
+  validateLoginUser,
+};

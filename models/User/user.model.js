@@ -26,7 +26,20 @@ async function getUsers() {
   }
 }
 
+async function getUserByEmail(email) {
+  try {
+    const user = await User.findOne({
+      email,
+    }).select({ name: 1, email: 1 });
+
+    return user;
+  } catch (ex) {
+    console.log(ex.message);
+  }
+}
+
 module.exports = {
   createUser,
   getUsers,
+  getUserByEmail,
 };
