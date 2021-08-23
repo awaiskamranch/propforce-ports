@@ -1,5 +1,5 @@
-const { generateUserModel } = require("../Models/User/user.schema");
-const { generatePortModel } = require("../Models/Port/port.schema");
+const { generateUserModel } = require("../models/User/user.schema");
+const { generatePortModel } = require("../models/Port/port.schema");
 
 function generateModels() {
   const modelTobeGenerated = [generateUserModel(), generatePortModel()];
