@@ -9,7 +9,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 function connectToMongoDB() {
-  //const mongoDbPath = process.env.MONGO_DB_PATH;
+  //const mongoDbPath = process.env.DEVELOPMENT_MONGO_DB_PATH;
   const mongoDbPath = process.env.PRODUCTION_MONGO_DB_PATH;
   mongoose
     .connect(mongoDbPath, {
