@@ -40,9 +40,13 @@ router.post("/", async (req, res) => {
           const token = jwt.sign({ ...result }, process.env.JWT_PRIVATE_KEY);
           res.header("x-auth-token", token).send(result);
         })
-        .catch(() => res.status(500).send(UNABLE_TO_CREATE_RECORD));
+        .catch((error) =>
+          res.status(500).send(`UNABLE_TO_CREATE_RECORD - ${error.message}`)
+        );
     })
-    .catch(() => res.status(500).send(INTERNAL_SERVER_ERROR));
+    .catch((error) =>
+      res.status(500).send(`INTERNAL_SERVER_ERROR - ${error.message}`)
+    );
 
   return;
 });
