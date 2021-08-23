@@ -4,8 +4,8 @@ const {
   createPort,
   getPorts,
   updatePort,
-} = require("../Models/Port/port.model");
-const validatePort = require("../models/Port/port.validator");
+} = require("../models/port/port.model");
+const validatePort = require("../models/port/port.validator");
 const {
   INTERNAL_SERVER_ERROR,
   MISSING_PARAMETERS,
