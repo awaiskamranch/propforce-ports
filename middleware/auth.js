@@ -3,7 +3,9 @@ const {
   NO_TOKEN_PROVIDED,
   INVALID_TOKEN,
 } = require("../utility/constants/error");
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 function auth(req, res, next) {
   const token = req.header("x-auth-token");
@@ -19,4 +21,3 @@ function auth(req, res, next) {
 }
 
 module.exports = auth;
- 

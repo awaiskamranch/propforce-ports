@@ -4,7 +4,9 @@ const {
   UNABLE_TO_CONNECT_DB,
   CONNECTED_TO_DB,
 } = require("../utility/constants/error");
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 function connectToMongoDB() {
   //const mongoDbPath = process.env.MONGO_DB_PATH;
