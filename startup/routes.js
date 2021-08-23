@@ -1,7 +1,7 @@
 const express = require("express");
 var cors = require("cors");
-const port = require("../routes/port");
-const user = require("../routes/user");
+const port = require("../routes/Port");
+const user = require("../routes/User");
 
 module.exports = function (app) {
   app.use(express.json());
