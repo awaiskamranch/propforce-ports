@@ -7,7 +7,8 @@ const {
 require("dotenv").config();
 
 function connectToMongoDB() {
-  const mongoDbPath = process.env.MONGO_DB_PATH;
+  //const mongoDbPath = process.env.MONGO_DB_PATH;
+  const mongoDbPath = process.env.PRODUCTION_MONGO_DB_PATH;
   mongoose
     .connect(mongoDbPath, {
       useNewUrlParser: true,
