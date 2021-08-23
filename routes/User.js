@@ -4,11 +4,11 @@ const {
   createUser,
   getUsers,
   getUserByEmail,
-} = require("../models/user/user.model");
+} = require("../models/User/user.model");
 const {
   validateUser,
   validateLoginUser,
-} = require("../models/user/user.validator");
+} = require("../models/User/user.validator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const getPasswordHash = require("../utility/hash");
